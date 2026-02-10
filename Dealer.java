@@ -10,7 +10,7 @@ public class Dealer {
         score = (int) (13);
         int indx = 0;
         for (int i = 0; i <= 10; i++) {
-            for (int j = 0; j < 10; i++) {
+            for (int j = 0; j < 10; j++) {
                 deck[indx] = i;
             }
         } // 60/players+1
