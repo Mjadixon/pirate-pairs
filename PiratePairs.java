@@ -7,5 +7,6 @@ public class PiratePairs {
 
         Dealer dealer = new Dealer();
         dealer.showDeck();
+        dealer.setPlayers();
     }
 }
