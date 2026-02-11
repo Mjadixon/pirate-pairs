@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Dealer {
 
-    private Player[] players = new Player[10];
+    // private Player[] players = new Player[10];
     private int deck[] = new int[55];
     private int score;
 
@@ -19,13 +19,5 @@ public class Dealer {
 
     public void showDeck() {
         System.out.println(Arrays.toString(deck));
-    }
-
-    public void setPlayers() {
-        for (int i = 0; i < players.length; i++) {
-            players[i] = i;
-        }
-        System.out.println(Arrays.toString((players)));
-
     }
 }
