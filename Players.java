@@ -3,11 +3,13 @@ public class Players {
 
     public Players(int people) {
         score = (int) (60 / people + 1);
-        idvScore = 0
+        int idvScore = 0;
+        int points = 0;
     }
 
-    public int getPoints() {
+    public int getPoints(int idv, int points) {
 
+        return points;
     }
 
     public int getScore() {

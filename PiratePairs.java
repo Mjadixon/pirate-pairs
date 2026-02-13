@@ -4,10 +4,9 @@ import java.util.Scanner;
 public class PiratePairs {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int people = scanner.nextInt();
-        Players[] players = new Players[people];
-
         System.out.println("How many players do you want?");
+        int people = scanner.nextInt();
+        // 5Players[] players = new Players[people];
 
         // System.out.println("What is the names?");
         // String name = scanner.next();
@@ -16,8 +15,11 @@ public class PiratePairs {
 
         Dealer dealer = new Dealer(people);
         dealer.showDeck();
-        Deck deck = new Deck();
-        Dealer.startCards(people);
+        dealer.shuffle();
+        dealer.showDeck();
+        int temp = dealer.drawCard();
+        System.out.println(temp);
+        dealer.showDeck();
         scanner.close();
     }
 }
