@@ -17,6 +17,7 @@ public class PiratePairs {
         Dealer dealer = new Dealer(people);
         dealer.showDeck();
         Deck deck = new Deck();
+        Dealer.startCards(people);
         scanner.close();
     }
 }

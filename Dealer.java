@@ -12,15 +12,17 @@ public class Dealer {
                 deck[indx] = i;
                 indx++;
             }
-        } // 60/players+1
+        }
+        // 60/players+1
     }
 
     public void showDeck() {
         System.out.println(Arrays.toString(deck));
     }
 
-    public int startCards(){
-        deck
+    public static int startCards(int people){
+        deck[(int)(Math.random()*55)] = 
+        return deck[];
     }
 
     public void setPlayers() {
@@ -31,4 +33,9 @@ public class Dealer {
 
     }
 
+    public int shuffle() {
+        for (int i = deck.length - 1; i >= 0; i--) {
+            deck[i] = (int) (Math.random() * deck);
+        }
+    }
 }
