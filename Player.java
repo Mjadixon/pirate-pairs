@@ -5,12 +5,11 @@ public class Player {
     private int playerScore;
     private int[] hand = new int[0];
     //Initializes player
-    public Player(int people) {
+    public Player(String name,int people) {
         score = (int) (60 / people + 1);
         int points = 0;
     }
-
-  
+   
     //Grabs Score
     public int getScore() {
         return score;
@@ -27,11 +26,11 @@ public class Player {
     public void showHand(){
         System.out.println(Arrays.toString(hand));
     }//checks hand for score
-    public void checkHand(){
+     public void checkHand(){
         int lastCard = hand[hand.length-2];
         int currentCard = hand[hand.length-1];
         if(hand.length>=2){
-            if(lastCard == currentCard){
+            if(lastCard == currentCard && hand[hand.length]>=2){
                 playerScore += currentCard;
             }
             else{
@@ -40,4 +39,9 @@ public class Player {
         }
         System.out.println(playerScore);
     }
+   public void wantHand(){
+    if(true){
+        
+    }
+   }
 }

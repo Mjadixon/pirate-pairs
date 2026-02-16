@@ -37,6 +37,7 @@ public class Dealer {
             tempDeck[i] = deck[i];
         }
         deck = tempDeck;
+
         return temp;
     }
 }
