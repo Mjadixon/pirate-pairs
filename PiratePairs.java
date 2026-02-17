@@ -27,18 +27,27 @@ public class PiratePairs {
         dealer.shuffle();
         dealer.showDeck();
 
-        //Draw Cards
-        while(!gameover){
+      //Starts Game
+    while(!gameover){
         Player currentPlayer = players[whichPlayer];
-        for(Player player : players){
-            int card = dealer.drawCard();
-            System.out.println(card);
-            dealer.showDeck();
-            currentPlayer.takeCard(card);
-            currentPlayer.showHand();
-            currentPlayer.checkHand();
+       
+        int card = dealer.drawCard();
+        currentPlayer.takeCard(card);
+        currentPlayer.showHand();
+        currentPlayer.checkHand();
+        if(currentPlayer.getScore()>11){
+            gameover = true;
+            System.out.print(currentPlayer.getName() + " has gone over and has lost");
         }
-        }
-        scanner.close();
+            if(currentPlayer.getLoss()){
+                //goes to next player
+                whichPlayer = (whichPlayer + 1) % players.length;
+            }
+             if(dealer.getCurrentSize()==0){
+                gameover= true;
+            }
+            whichPlayer = (whichPlayer + 1) % players.length;
+    }
+    scanner.close();
     }
 }

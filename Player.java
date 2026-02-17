@@ -9,16 +9,19 @@ public class Player {
     public Player(String name,int people) {
         this.name = name;
         this.score = 0;
-        this.totalScore = (int) (60 / people)+1;
-    }
+        this.totalScore =  (60 / people)+1;
+    }//gets name
     public String getName(){
         return name;
-    }
+    }// grabs score
     public int getScore(){
         return score;
-    }
+    } //if score is greater than max
     public boolean getLoss(){
         return score > totalScore;
+    }
+    public void resetScore(){
+        score = 0;
     }
     //Grabs card from Deck
     public void takeCard(int card){
@@ -30,19 +33,20 @@ public class Player {
         hand = newHand;
     }//Shows Hand
     public void showHand(){
-        System.out.println(name+"hand" + Arrays.toString(hand));
+        System.out.println(name+" hand" + Arrays.toString(hand));
     }//checks hand for score
      public void checkHand(){
         boolean[] usedCard = new boolean[hand.length];
         if(hand.length>=2){// if hand is 2
+            int lastCard = hand[hand.length-1];
             for(int i = 0; i<hand.length;i++){
                  if(!usedCard[i]){ // if card was not used
                     for(int j = i+1;j<hand.length;j++){
                         if(!usedCard[j] && hand[i] == hand[j]){
-                            score += hand[i];
                             usedCard[i] = true;//sets each true
                             usedCard[j] = true;
-                            
+                            score +=  hand[i];
+                           
                         }
                     }
                  }

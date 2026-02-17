@@ -5,6 +5,8 @@ public class Dealer {
     private int deck[] = new int[55];
     private int currentSize;
 
+
+    
     public Dealer(int people) {
         // deck
         int indx = 0;
@@ -16,20 +18,23 @@ public class Dealer {
         }
         currentSize = deck.length;
     }
-
+    public int getCurrentSize(){
+        return currentSize;
+    }
     public void showDeck() {
         System.out.println(Arrays.toString(deck));
     }
     
     public void shuffle() {
         for (int i = deck.length - 1; i >= 0; i--) {
-            int r = (int) (Math.random() * 10);
+            int r = (int) (Math.random()*(i +1));
             int temp = deck[r];
             deck[r] = deck[i];
             deck[i] = temp;
 
         }
     }
+   
 
     public int drawCard() {
         int temp = deck[deck.length - 1];
@@ -38,10 +43,7 @@ public class Dealer {
             tempDeck[i] = deck[i];
         }
         deck = tempDeck;
-        if(currentSize == 0){
-            return -1;
-        }
-        currentSize--;
+    
         return temp;
     }
 }
