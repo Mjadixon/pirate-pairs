@@ -3,41 +3,42 @@ import java.util.Scanner;
 
 public class PiratePairs {
     public static void main(String[] args) {
+        //Scanner 
         Scanner scanner = new Scanner(System.in);
         System.out.println("How many players do you want?");
         int people = scanner.nextInt();
+        scanner.nextLine();
         System.out.println("Amount of Players: " + people);
         Player[] players = new Player[people];
         for(int i = 0; i< people;i++){
              System.out.println("Enter Name ");
             String name = scanner.nextLine();
             players[i] = new Player(name,people);
-            System.out.println("Names: "+ name);
-             
+            System.out.println("Names: "+ name);  
         }
-       
+         //global vars
+        int whichPlayer = 0;
+        boolean gameover = false;
+
         // Sets new dealer 
         Dealer dealer = new Dealer(people);
         dealer.showDeck();
         //Shuffles
         dealer.shuffle();
         dealer.showDeck();
-        Player currentPlayer = players[0];
+
         //Draw Cards
-        for( Player player : players){
-        int card = dealer.drawCard();
-        System.out.println(card);
-        dealer.showDeck();
-        currentPlayer.takeCard(card);
-        currentPlayer.showHand();
-        
+        while(!gameover){
+        Player currentPlayer = players[whichPlayer];
+        for(Player player : players){
+            int card = dealer.drawCard();
+            System.out.println(card);
+            dealer.showDeck();
+            currentPlayer.takeCard(card);
+            currentPlayer.showHand();
+            currentPlayer.checkHand();
         }
-      currentPlayer.checkHand();
-        //player.showHand();
-        //Take Card
-        
-        //currentPlayer.checkHand();
-        
+        }
         scanner.close();
     }
 }

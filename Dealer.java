@@ -3,6 +3,7 @@ import java.util.Arrays;
 public class Dealer {
 
     private int deck[] = new int[55];
+    private int currentSize;
 
     public Dealer(int people) {
         // deck
@@ -13,13 +14,13 @@ public class Dealer {
                 indx++;
             }
         }
-        // 60/players+1
+        currentSize = deck.length;
     }
 
     public void showDeck() {
         System.out.println(Arrays.toString(deck));
     }
-
+    
     public void shuffle() {
         for (int i = deck.length - 1; i >= 0; i--) {
             int r = (int) (Math.random() * 10);
@@ -37,7 +38,10 @@ public class Dealer {
             tempDeck[i] = deck[i];
         }
         deck = tempDeck;
-
+        if(currentSize == 0){
+            return -1;
+        }
+        currentSize--;
         return temp;
     }
 }
