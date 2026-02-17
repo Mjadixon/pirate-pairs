@@ -44,23 +44,29 @@ public class Player {
     }
     //checks hand for score
      public void checkHand(){
-        boolean[] usedCard = new boolean[hand.length];
+       
         if(hand.length>=2){// if hand is 2
             int lastCard = hand[hand.length-1];
-            for(int i = 0; i<hand.length;i++){
-                 if(!usedCard[i]){ // if card was not used
-                    for(int j = i+1;j<hand.length;j++){
-                        if(!usedCard[j] && hand[i] == hand[j]){
-                            usedCard[i] = true;//sets each true
-                            usedCard[j] = true;
-                            score +=  hand[i];
-                           
-                        }
-                    }
-                 }
-               } 
-            } 
+             boolean ifMatched = false;
+            for(int i = 0; i<hand.length-1;i++){
+                 if(!ifMatched && lastCard ==hand[i]){
+                        score += lastCard;
+                        ifMatched = true;
+              }
+              
+            }   
+        }
         System.out.println(score);
+    }
+    public boolean wantCard(int card){
+        int boundary = card;
+        if(score > totalScore){
+            return false;
+        } else if(boundary > 7){
+            return false;
+        } else{
+            return true;
+        }
     }
    
 }

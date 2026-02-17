@@ -32,7 +32,12 @@ public class PiratePairs {
         Player currentPlayer = players[whichPlayer];
        
         int card = dealer.drawCard();
-        currentPlayer.takeCard(card);
+        if(currentPlayer.wantCard(card)){
+            currentPlayer.takeCard(card);
+            System.out.println(currentPlayer.getName() + " Draws");
+        }else{
+            System.out.println("No Draw");
+        }
         currentPlayer.showHand();
         currentPlayer.checkHand();
         if(currentPlayer.getScore()>11){
