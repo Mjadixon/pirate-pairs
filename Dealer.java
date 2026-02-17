@@ -8,23 +8,24 @@ public class Dealer {
 
     
     public Dealer(int people) {
-        // deck
-        int indx = 0;
+    // deck
+    int indx = 0;
         for (int i = 1; i <= 10; i++) {
             for (int j = 0; j < i; j++) {
                 deck[indx] = i;
                 indx++;
             }
         }
-        currentSize = deck.length;
+    currentSize = deck.length;
     }
     public int getCurrentSize(){
         return currentSize;
     }
+    //Shows Deck When called
     public void showDeck() {
         System.out.println(Arrays.toString(deck));
     }
-    
+    //Shuffles using Fisher-Yates
     public void shuffle() {
         for (int i = deck.length - 1; i >= 0; i--) {
             int r = (int) (Math.random()*(i +1));
@@ -34,8 +35,7 @@ public class Dealer {
 
         }
     }
-   
-
+   //Sets up Draw Card
     public int drawCard() {
         int temp = deck[deck.length - 1];
         int tempDeck[] = new int[deck.length - 1];
@@ -43,7 +43,6 @@ public class Dealer {
             tempDeck[i] = deck[i];
         }
         deck = tempDeck;
-    
         return temp;
     }
 }
